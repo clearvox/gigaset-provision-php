@@ -120,7 +120,10 @@ class Config
     public function toXML()
     {
         $output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
-        $output .= '<settings version="1.0" productID="' . $this->getProductID() . '" macAddress= "' . $this->getMacAddress() . '">' . PHP_EOL;
+        $output .= '<provisioning version="1.0" productID="' . $this->getProductID() . '">' . PHP_EOL;
+
+        $output .= '<firmware></firmware>' . PHP_EOL;
+        $output .= '<nvm>' . PHP_EOL;
 
         $ritit = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->toArray()));
         foreach ($ritit as $leafValue) {
@@ -130,8 +133,10 @@ class Config
             }
             $output .= '<param name="' . join('.', $keys) . '" value="' . $leafValue . '" />' . PHP_EOL;
         }
+        $output .= '<nvm>' . PHP_EOL;
 
-        $output .= '</settings>';
+        $output .= '<custom></custom>' . PHP_EOL;
+        $output .= '</provisioning>';
 
         return $output;
     }
