@@ -131,6 +131,11 @@ class Config
             foreach (range(0, $ritit->getDepth()) as $depth) {
                 $keys[] = $ritit->getSubIterator($depth)->key();
             }
+
+            if(is_bool($leafValue)) {
+                $leafValue = $leafValue ? '1' : '0';
+            }
+
             $output .= '<param name="' . join('.', $keys) . '" value="' . $leafValue . '" />' . PHP_EOL;
         }
         $output .= '<nvm>' . PHP_EOL;
