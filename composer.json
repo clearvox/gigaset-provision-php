@@ -1,0 +1,21 @@
+{
+  "name": "clearvox/gigaset-provision",
+  "description": "PHP Library to help build provision files for Gigaset Maxwell",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yme-Jan Iedema",
+      "email": "yme-jan@clearvox.nl"
+    }
+  ],
+  "require-dev": {
+    "php": ">=5.4.0",
+    "phpunit/phpunit": "~4.8@dev"
+  },
+  "autoload":{
+    "psr-0": {
+      "Clearvox\\Gigaset\\Provision": "src/"
+    }
+  }
+}
