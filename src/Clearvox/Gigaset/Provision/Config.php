@@ -35,7 +35,7 @@ class Config
     public function __construct($productID, $macAddress)
     {
         if (strlen($macAddress) === 12) {
-            $macAddress = chunk_split($macAddress, 2, ':');
+            $macAddress = trim(chunk_split($macAddress, 2, ':'), ':');
         }
 
         $this->productID  = $productID;
@@ -75,7 +75,7 @@ class Config
     public function setMacAddress($macAddress)
     {
         if (strlen($macAddress) === 12) {
-            $macAddress = chunk_split($macAddress, 2, ':');
+            $macAddress = trim(chunk_split($macAddress, 2, ':'), ':');
         }
 
         $this->macAddress = strtolower($macAddress);
