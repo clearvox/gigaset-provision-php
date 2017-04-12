@@ -138,7 +138,7 @@ class Config
 
             $output .= '<param name="' . join('.', $keys) . '" value="' . $leafValue . '" />' . PHP_EOL;
         }
-        $output .= '<nvm>' . PHP_EOL;
+        $output .= '</nvm>' . PHP_EOL;
 
         $output .= '<custom></custom>' . PHP_EOL;
         $output .= '</provisioning>';
