@@ -120,7 +120,7 @@ class Config
     public function toXML()
     {
         $output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
-        $output .= '<provisioning version="1.0" productID="' . $this->getProductID() . '">' . PHP_EOL;
+        $output .= '<provisioning version="1.1" productID="' . $this->getProductID() . '">' . PHP_EOL;
 
         $output .= '<firmware></firmware>' . PHP_EOL;
         $output .= '<nvm>' . PHP_EOL;
