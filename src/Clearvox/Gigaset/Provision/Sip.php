@@ -1,7 +1,8 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-class SIP {
+class SIP
+{
 
     /**
      * @var Account[]
@@ -29,7 +30,7 @@ class SIP {
      */
     public function removeAccount(Account $account)
     {
-        if(($key = array_search($account, $this->accounts)) !== false) {
+        if (($key = array_search($account, $this->accounts)) !== false) {
             unset($this->accounts[$key]);
         }
         return $this;
@@ -66,13 +67,11 @@ class SIP {
      */
     public function toArray()
     {
-        foreach($this->accounts as $account) {
+        foreach ($this->accounts as $account) {
             $output['Account'][] = $account->toArray();
         }
 
-        $output = [
-            'DefaultAccount' => array_search($this->defaultAccount, $this->accounts)
-        ];
+        $output['DefaultAccount'] = array_search($this->defaultAccount, $this->accounts);
 
         return $output;
     }
