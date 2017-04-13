@@ -1,7 +1,8 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-trait ToArray {
+trait ToArray
+{
 
     /**
      * Build an array with all properties of the object
@@ -15,7 +16,9 @@ trait ToArray {
 
         foreach ($this as $key => $value) {
             // Ignore properties prefixed with _
-            if(substr($key, 0, 1) === '_') continue;
+            if (substr($key, 0, 1) === '_') {
+                continue;
+            }
 
             if (is_object($value)) {
                 if (method_exists($value, 'toArray')) {
@@ -25,10 +28,14 @@ trait ToArray {
             }
             $getter = "get" . ucfirst($key);
 
-            if(method_exists($this, $getter)) {
-                $output[ucfirst($key)] = $this->$getter();
+            if (method_exists($this, $getter)) {
+                if (!empty($this->$getter())) {
+                    $output[ucfirst($key)] = $this->$getter();
+                }
             } else {
-                $output[ucfirst($key)] = $value;
+                if (!empty($value)) {
+                    $output[ucfirst($key)] = $value;
+                }
             }
         }
 
