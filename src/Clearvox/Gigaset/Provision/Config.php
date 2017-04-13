@@ -24,7 +24,7 @@ class Config
      *
      * @var SIP
      */
-    private $sip;
+    private $SIP;
 
     /**
      * System configuration
@@ -92,18 +92,18 @@ class Config
     /**
      * @return SIP
      */
-    public function getSip()
+    public function getSIP()
     {
-        return $this->sip;
+        return $this->SIP;
     }
 
     /**
-     * @param SIP $sip
+     * @param SIP $SIP
      * @returns $this
      */
-    public function setSip(SIP $sip)
+    public function setSIP(SIP $SIP)
     {
-        $this->sip = $sip;
+        $this->SIP = $SIP;
         return $this;
     }
 
