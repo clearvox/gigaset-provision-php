@@ -29,6 +29,11 @@ class Config
     private $system;
 
     /**
+     * @var PhoneUI
+     */
+    private $phoneUI;
+
+    /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
@@ -89,6 +94,24 @@ class Config
     public function setSystem($system)
     {
         $this->system = $system;
+        return $this;
+    }
+
+    /**
+     * @return PhoneUI
+     */
+    public function getPhoneUI()
+    {
+        return $this->phoneUI;
+    }
+
+    /**
+     * @param PhoneUI $phoneUI
+     * @returns $this
+     */
+    public function setPhoneUI($phoneUI)
+    {
+        $this->phoneUI = $phoneUI;
         return $this;
     }
 
