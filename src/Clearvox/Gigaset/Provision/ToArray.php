@@ -20,22 +20,20 @@ trait ToArray
                 continue;
             }
 
+            $getter = "get" . ucfirst($key);
+            if (method_exists($this, $getter)) {
+                $value = $this->$getter();
+            }
+
             if (is_object($value)) {
                 if (method_exists($value, 'toArray')) {
                     $output[ucfirst($key)] = $value->toArray();
                     continue;
                 }
             }
-            $getter = "get" . ucfirst($key);
 
-            if (method_exists($this, $getter)) {
-                if (!empty($this->$getter())) {
-                    $output[ucfirst($key)] = $this->$getter();
-                }
-            } else {
-                if (!empty($value)) {
-                    $output[ucfirst($key)] = $value;
-                }
+            if (!empty($value)) {
+                $output[ucfirst($key)] = $value;
             }
         }
 
