@@ -21,7 +21,7 @@ class NetDir
     }
 
     /**
-     * @param LDAP[] $LDAP
+     * @param LDAP $LDAP
      * @returns $this
      */
     public function addLDAP($LDAP)
