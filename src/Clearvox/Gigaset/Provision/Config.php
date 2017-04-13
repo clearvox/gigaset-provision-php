@@ -34,6 +34,11 @@ class Config
     private $phoneUI;
 
     /**
+     * @var NetDir
+     */
+    private $netDir;
+
+    /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
@@ -124,6 +129,27 @@ class Config
     public function setPhoneUI($phoneUI)
     {
         $this->phoneUI = $phoneUI;
+        return $this;
+    }
+
+    /**
+     * @return NetDir
+     */
+    public function getNetDir()
+    {
+        if(!$this->netDir) {
+            $this->netDir = new NetDir();
+        }
+        return $this->netDir;
+    }
+
+    /**
+     * @param NetDir $netDir
+     * @returns $this
+     */
+    public function setNetDir($netDir)
+    {
+        $this->netDir = $netDir;
         return $this;
     }
 
