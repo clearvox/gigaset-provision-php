@@ -64,11 +64,6 @@ class Account
     private $registrationServer = null;
 
     /**
-     * @var ?? Enabled
-     */
-    private $failoverServer;
-
-    /**
      * @var int
      */
     private $CLIPSource = 2;
@@ -358,24 +353,6 @@ class Account
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
-    {
-        $output = [];
-
-        foreach ($this as $key => $value) {
-            if (is_object($value)) {
-                if (method_exists($value, 'toArray')) {
-                    $output[ucfirst($key)] = $value->toArray();
-                    continue;
-                }
-            }
-            $output[ucfirst($key)] = $value;
-        }
-
-        return $output;
-    }
+    use ToArray;
 
 }

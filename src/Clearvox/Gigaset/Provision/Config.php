@@ -12,12 +12,12 @@ class Config
     /**
      * @var string
      */
-    private $productID;
+    private $_productID;
 
     /**
      * @var string
      */
-    private $macAddress;
+    private $_macAddress;
 
     /**
      * Basic sip configuration
@@ -25,6 +25,13 @@ class Config
      * @var SIP
      */
     private $sip;
+
+    /**
+     * System configuration
+     *
+     * @var System
+     */
+    private $system;
 
     /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
@@ -38,8 +45,8 @@ class Config
             $macAddress = trim(chunk_split($macAddress, 2, ':'), ':');
         }
 
-        $this->productID  = $productID;
-        $this->macAddress = strtolower($macAddress);
+        $this->_productID  = $productID;
+        $this->_macAddress = strtolower($macAddress);
     }
 
     /**
@@ -47,16 +54,16 @@ class Config
      */
     public function getProductID()
     {
-        return $this->productID;
+        return $this->_productID;
     }
 
     /**
-     * @param string $productID
+     * @param string $_productID
      * @returns $this
      */
-    public function setProductID($productID)
+    public function setProductID($_productID)
     {
-        $this->productID = $productID;
+        $this->_productID = $_productID;
         return $this;
     }
 
@@ -65,20 +72,20 @@ class Config
      */
     public function getMacAddress()
     {
-        return $this->macAddress;
+        return $this->_macAddress;
     }
 
     /**
-     * @param string $macAddress
+     * @param string $_macAddress
      * @returns $this
      */
-    public function setMacAddress($macAddress)
+    public function setMacAddress($_macAddress)
     {
-        if (strlen($macAddress) === 12) {
-            $macAddress = trim(chunk_split($macAddress, 2, ':'), ':');
+        if (strlen($_macAddress) === 12) {
+            $_macAddress = trim(chunk_split($_macAddress, 2, ':'), ':');
         }
 
-        $this->macAddress = strtolower($macAddress);
+        $this->_macAddress = strtolower($_macAddress);
         return $this;
     }
 
@@ -101,16 +108,24 @@ class Config
     }
 
     /**
-     * Exports the provision data as array
-     *
-     * @return array
+     * @return System
      */
-    public function toArray()
+    public function getSystem()
     {
-        return [
-            'SIP' => $this->sip->toArray(),
-        ];
+        return $this->system;
     }
+
+    /**
+     * @param System $system
+     * @returns $this
+     */
+    public function setSystem($system)
+    {
+        $this->system = $system;
+        return $this;
+    }
+
+    use ToArray;
 
     /**
      * Export the provision data as xml string
@@ -122,16 +137,18 @@ class Config
         $output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
         $output .= '<provisioning version="1.1" productID="' . $this->getProductID() . '">' . PHP_EOL;
 
+        // @todo[feature]: add firmware definition (url)
         $output .= '<firmware></firmware>' . PHP_EOL;
         $output .= '<nvm>' . PHP_EOL;
 
-        $ritit = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->toArray()));
-        foreach ($ritit as $leafValue) {
+        $iterator = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->toArray()));
+        foreach ($iterator as $leafValue) {
             $keys = [];
-            foreach (range(0, $ritit->getDepth()) as $depth) {
-                $keys[] = $ritit->getSubIterator($depth)->key();
+            foreach (range(0, $iterator->getDepth()) as $depth) {
+                $keys[] = $iterator->getSubIterator($depth)->key();
             }
 
+            // convert booleans to 0 or 1
             if(is_bool($leafValue)) {
                 $leafValue = $leafValue ? '1' : '0';
             }

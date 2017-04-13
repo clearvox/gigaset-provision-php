@@ -49,13 +49,6 @@ class Server {
         $this->port = $port;
     }
 
-
-    public function toArray()
-    {
-        return [
-            'Address' => $this->getAddress(),
-            'Port' => $this->getPort()
-        ];
-    }
+    use ToArray;
 
 }

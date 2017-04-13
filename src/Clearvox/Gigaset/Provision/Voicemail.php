@@ -65,15 +65,6 @@ class Voicemail
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
-    {
-        return [
-            'Active'  => $this->isActive(),
-            'MailBox' => $this->getMailBox(),
-        ];
-    }
+    use ToArray;
 
 }

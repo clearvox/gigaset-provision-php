@@ -45,11 +45,11 @@ class SIP
     }
 
     /**
-     * @return Account
+     * @return int
      */
     public function getDefaultAccount()
     {
-        return $this->defaultAccount;
+        return array_search($this->defaultAccount, $this->accounts) ?: 0;
     }
 
     /**
@@ -62,18 +62,6 @@ class SIP
         return $this;
     }
 
-    /**
-     * @return array
-     */
-    public function toArray()
-    {
-        foreach ($this->accounts as $account) {
-            $output['Account'][] = $account->toArray();
-        }
-
-        $output['DefaultAccount'] = array_search($this->defaultAccount, $this->accounts);
-
-        return $output;
-    }
+    use ToArray;
 
 }
