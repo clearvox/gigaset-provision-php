@@ -39,7 +39,9 @@ trait ToArray
                 continue;
             }
 
-            $output[ucfirst($key)] = $value;
+            if($value || $value === 0) {
+                $output[ucfirst($key)] = $value;
+            }
         }
 
         return $output;
