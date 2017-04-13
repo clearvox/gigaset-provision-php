@@ -37,16 +37,10 @@ class Config
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
-     * @param $macAddress
      */
-    public function __construct($productID, $macAddress)
+    public function __construct($productID)
     {
-        if (strlen($macAddress) === 12) {
-            $macAddress = trim(chunk_split($macAddress, 2, ':'), ':');
-        }
-
         $this->_productID  = $productID;
-        $this->_macAddress = strtolower($macAddress);
     }
 
     /**
@@ -64,28 +58,6 @@ class Config
     public function setProductID($_productID)
     {
         $this->_productID = $_productID;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMacAddress()
-    {
-        return $this->_macAddress;
-    }
-
-    /**
-     * @param string $_macAddress
-     * @returns $this
-     */
-    public function setMacAddress($_macAddress)
-    {
-        if (strlen($_macAddress) === 12) {
-            $_macAddress = trim(chunk_split($_macAddress, 2, ':'), ':');
-        }
-
-        $this->_macAddress = strtolower($_macAddress);
         return $this;
     }
 
