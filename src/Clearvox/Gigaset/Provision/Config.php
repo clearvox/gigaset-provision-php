@@ -15,11 +15,6 @@ class Config
     private $_productID;
 
     /**
-     * @var string
-     */
-    private $_macAddress;
-
-    /**
      * Basic sip configuration
      *
      * @var SIP
