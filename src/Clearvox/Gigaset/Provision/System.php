@@ -1,6 +1,10 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
+/**
+ * Class System
+ * @package Clearvox\Gigaset\Provision
+ */
 class System
 {
     /**

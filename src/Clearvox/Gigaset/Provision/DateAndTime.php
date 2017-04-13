@@ -1,8 +1,12 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-class DateAndTime {
-
+/**
+ * Class DateAndTime
+ * @package Clearvox\Gigaset\Provision
+ */
+class DateAndTime
+{
     /**
      * @var string
      */

@@ -1,8 +1,12 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-class ColorScheme {
-
+/**
+ * Class ColorScheme
+ * @package Clearvox\Gigaset\Provision
+ */
+class ColorScheme
+{
     /**
      * @var int
      */

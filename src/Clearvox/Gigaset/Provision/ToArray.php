@@ -3,7 +3,6 @@ namespace Clearvox\Gigaset\Provision;
 
 trait ToArray
 {
-
     /**
      * Build an array with all properties of the object
      * Ignoring those prefixed with _
@@ -32,18 +31,18 @@ trait ToArray
                 }
             }
 
-            if(is_array($value)) {
+            if (is_array($value)) {
                 /**
                  * @var int $i
                  * @var ToArray $v
                  */
-                foreach($value as $i => $v) {
+                foreach ($value as $i => $v) {
                     $output[ucfirst($key)][$i] = $v->toArray();
                 }
                 continue;
             }
 
-            if($value || $value === 0) {
+            if ($value || $value === 0) {
                 $output[ucfirst($key)] = $value;
             }
         }

@@ -1,8 +1,12 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-class Provision {
-
+/**
+ * Class Provision
+ * @package Clearvox\Gigaset\Provision
+ */
+class Provision
+{
     /**
      * @var string
      */

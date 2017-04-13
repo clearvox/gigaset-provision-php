@@ -1,8 +1,12 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-class PhoneUI {
-
+/**
+ * Class PhoneUI
+ * @package Clearvox\Gigaset\Provision
+ */
+class PhoneUI
+{
     /**
      * @var Settings
      */
@@ -13,7 +17,7 @@ class PhoneUI {
      */
     public function getSettings()
     {
-        if(!$this->settings) {
+        if (!$this->settings) {
             $this->settings = new Settings();
         }
 

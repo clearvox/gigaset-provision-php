@@ -1,9 +1,12 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
+/**
+ * Class SIP
+ * @package Clearvox\Gigaset\Provision
+ */
 class SIP
 {
-
     /**
      * @var Account[]
      */

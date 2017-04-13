@@ -7,7 +7,6 @@ namespace Clearvox\Gigaset\Provision;
  */
 class Account
 {
-
     /**
      * @var string
      */

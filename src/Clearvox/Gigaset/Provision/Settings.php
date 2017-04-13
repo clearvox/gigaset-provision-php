@@ -1,7 +1,12 @@
 <?php
 namespace Clearvox\Gigaset\Provision;
 
-class Settings {
+/**
+ * Class Settings
+ * @package Clearvox\Gigaset\Provision
+ */
+class Settings
+{
     /**
      * @var string
      */
@@ -78,7 +83,7 @@ class Settings {
      */
     public function getColorScheme()
     {
-        if(!$this->colorScheme) {
+        if (!$this->colorScheme) {
             $this->colorScheme = new ColorScheme();
         }
 
