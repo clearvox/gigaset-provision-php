@@ -24,9 +24,18 @@ class NetDir
      * @param LDAP[] $LDAP
      * @returns $this
      */
-    public function setLDAP($LDAP)
+    public function addLDAP($LDAP)
     {
-        $this->LDAP = $LDAP;
+        $this->LDAP[] = $LDAP;
+        return $this;
+    }
+
+    public function removeLDAP($LDAP)
+    {
+        if (($key = array_search($LDAP, $this->LDAP)) !== false) {
+            unset($this->LDAP[$key]);
+        }
+
         return $this;
     }
 
