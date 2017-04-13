@@ -3,12 +3,18 @@ namespace Clearvox\Gigaset\Provision;
 
 class Server {
 
+    /**
+     * @var string
+     */
     private $address;
 
+    /**
+     * @var int
+     */
     private $port;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAddress()
     {
@@ -16,7 +22,7 @@ class Server {
     }
 
     /**
-     * @param mixed $address
+     * @param string $address
      * @returns $this
      */
     public function setAddress($address)
@@ -26,7 +32,7 @@ class Server {
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getPort()
     {
@@ -34,19 +40,13 @@ class Server {
     }
 
     /**
-     * @param mixed $port
+     * @param int $port
      * @returns $this
      */
     public function setPort($port)
     {
         $this->port = $port;
         return $this;
-    }
-
-    public function __construct($address, $port)
-    {
-        $this->address = $address;
-        $this->port = $port;
     }
 
     use ToArray;

@@ -250,6 +250,10 @@ class Account
      */
     public function getProxyServer()
     {
+        if(!$this->proxyServer) {
+            $this->proxyServer = new Server();
+        }
+
         return $this->proxyServer;
     }
 
@@ -268,6 +272,10 @@ class Account
      */
     public function getRegistrationServer()
     {
+        if(!$this->registrationServer) {
+            $this->registrationServer = new Server();
+        }
+
         return $this->registrationServer;
     }
 
@@ -322,6 +330,10 @@ class Account
      */
     public function getVoiceMail()
     {
+        if(!$this->voiceMail) {
+            $this->voiceMail = new Voicemail();
+        }
+
         return $this->voiceMail;
     }
 

@@ -18,6 +18,10 @@ class System
      */
     public function getDateAndTime()
     {
+        if(!$this->dateAndTime) {
+            $this->dateAndTime = new DateAndTime();
+        }
+
         return $this->dateAndTime;
     }
 
@@ -36,6 +40,10 @@ class System
      */
     public function getProvision()
     {
+        if(!$this->provision) {
+            $this->provision = new Provision();
+        }
+
         return $this->provision;
     }
 

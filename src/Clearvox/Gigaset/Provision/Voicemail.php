@@ -18,18 +18,6 @@ class Voicemail
     private $mailBox = '';
 
     /**
-     * Voicemail constructor.
-     *
-     * @param bool $active
-     * @param string $mailBox
-     */
-    public function __construct($active, $mailBox)
-    {
-        $this->active  = $active;
-        $this->mailBox = $mailBox;
-    }
-
-    /**
      * @return boolean
      */
     public function isActive()

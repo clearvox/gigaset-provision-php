@@ -78,6 +78,10 @@ class Settings {
      */
     public function getColorScheme()
     {
+        if(!$this->colorScheme) {
+            $this->colorScheme = new ColorScheme();
+        }
+
         return $this->colorScheme;
     }
 
@@ -85,7 +89,7 @@ class Settings {
      * @param ColorScheme $colorScheme
      * @returns $this
      */
-    public function setColorScheme($colorScheme)
+    public function setColorScheme(ColorScheme $colorScheme)
     {
         $this->colorScheme = $colorScheme;
         return $this;

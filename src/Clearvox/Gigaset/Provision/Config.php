@@ -66,6 +66,10 @@ class Config
      */
     public function getSIP()
     {
+        if(!$this->SIP) {
+            $this->SIP = new SIP();
+        }
+
         return $this->SIP;
     }
 
@@ -84,6 +88,10 @@ class Config
      */
     public function getSystem()
     {
+        if(!$this->system) {
+            $this->system = new System();
+        }
+
         return $this->system;
     }
 
@@ -102,6 +110,10 @@ class Config
      */
     public function getPhoneUI()
     {
+        if(!$this->phoneUI) {
+            $this->phoneUI = new PhoneUI();
+        }
+
         return $this->phoneUI;
     }
 

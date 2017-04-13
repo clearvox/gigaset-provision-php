@@ -13,6 +13,10 @@ class PhoneUI {
      */
     public function getSettings()
     {
+        if(!$this->settings) {
+            $this->settings = new Settings();
+        }
+
         return $this->settings;
     }
 
