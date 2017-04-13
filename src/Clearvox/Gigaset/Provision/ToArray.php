@@ -32,9 +32,14 @@ trait ToArray
                 }
             }
 
-            if (!empty($value)) {
-                $output[ucfirst($key)] = $value;
+            if(is_array($value)) {
+                foreach($value as $i => $v) {
+                    $output[ucfirst($key)][$i] = $v->toArray();
+                }
+                continue;
             }
+
+            $output[ucfirst($key)] = $value;
         }
 
         return $output;
