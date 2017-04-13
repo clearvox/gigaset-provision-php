@@ -7,7 +7,7 @@ class SIP
     /**
      * @var Account[]
      */
-    private $accounts;
+    private $account;
 
     /**
      * @var Account
@@ -20,7 +20,7 @@ class SIP
      */
     public function addAccount(Account $account)
     {
-        $this->accounts[] = $account;
+        $this->account[] = $account;
         return $this;
     }
 
@@ -30,8 +30,8 @@ class SIP
      */
     public function removeAccount(Account $account)
     {
-        if (($key = array_search($account, $this->accounts)) !== false) {
-            unset($this->accounts[$key]);
+        if (($key = array_search($account, $this->account)) !== false) {
+            unset($this->account[$key]);
         }
         return $this;
     }
@@ -39,9 +39,9 @@ class SIP
     /**
      * @return Account[]
      */
-    public function getAccounts()
+    public function getAccount()
     {
-        return $this->accounts;
+        return $this->account;
     }
 
     /**
@@ -49,7 +49,7 @@ class SIP
      */
     public function getDefaultAccount()
     {
-        return array_search($this->defaultAccount, $this->accounts) ?: 0;
+        return array_search($this->defaultAccount, $this->account) ?: 0;
     }
 
     /**
