@@ -33,6 +33,10 @@ trait ToArray
             }
 
             if(is_array($value)) {
+                /**
+                 * @var int $i
+                 * @var ToArray $v
+                 */
                 foreach($value as $i => $v) {
                     $output[ucfirst($key)][$i] = $v->toArray();
                 }
