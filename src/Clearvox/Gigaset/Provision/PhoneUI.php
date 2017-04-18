@@ -13,6 +13,11 @@ class PhoneUI
     private $settings;
 
     /**
+     * @var Keys
+     */
+    private $keys;
+
+    /**
      * @return Settings
      */
     public function getSettings()
@@ -31,6 +36,27 @@ class PhoneUI
     public function setSettings(Settings $settings)
     {
         $this->settings = $settings;
+        return $this;
+    }
+
+    /**
+     * @return Keys
+     */
+    public function getKeys()
+    {
+        if (!$this->keys) {
+            $this->keys = new Keys();
+        }
+        return $this->keys;
+    }
+
+    /**
+     * @param Keys $keys
+     * @returns $this
+     */
+    public function setKeys($keys)
+    {
+        $this->keys = $keys;
         return $this;
     }
 
