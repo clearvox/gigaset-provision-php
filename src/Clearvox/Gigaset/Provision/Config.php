@@ -191,7 +191,11 @@ class Config
         // @todo[feature]: add firmware definition (url)
         $output .= '<firmware>' . PHP_EOL;
 
-        $output .= '<file url="' . $this->_firmware . '"/>' . PHP_EOL;
+        if ($version = preg_match('/((\d+).(\d+).(\d))/', $this->getFirmware(), $matches)) {
+            $version = $matches[1];
+        }
+
+        $output .= '<file' . $version ? ' version="' . $version . '"' : '' . ' url="' . $this->_firmware . '"/>' . PHP_EOL;
 
         $output .= '</firmware>' . PHP_EOL;
         $output .= '<nvm>' . PHP_EOL;
