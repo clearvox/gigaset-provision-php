@@ -195,7 +195,7 @@ class Config
             $version = $matches[1];
         }
 
-        $output .= '<file' . $version ? ' version="' . $version . '"' : '' . ' url="' . $this->_firmware . '"/>' . PHP_EOL;
+        $output .= '<file' . ($version ? ' version="' . $version . '"' : '') . ' url="' . $this->_firmware . '"/>' . PHP_EOL;
 
         $output .= '</firmware>' . PHP_EOL;
         $output .= '<nvm>' . PHP_EOL;
