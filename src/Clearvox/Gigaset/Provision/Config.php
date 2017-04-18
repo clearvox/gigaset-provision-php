@@ -15,6 +15,11 @@ class Config
     private $_productID;
 
     /**
+     * @var string
+     */
+    private $_firmware;
+
+    /**
      * Basic sip configuration
      *
      * @var SIP
@@ -45,7 +50,7 @@ class Config
      */
     public function __construct($productID)
     {
-        $this->_productID  = $productID;
+        $this->_productID = $productID;
     }
 
     /**
@@ -67,11 +72,29 @@ class Config
     }
 
     /**
+     * @return string
+     */
+    public function getFirmware()
+    {
+        return $this->_firmware;
+    }
+
+    /**
+     * @param string $firmware
+     * @returns $this
+     */
+    public function setFirmware($firmware)
+    {
+        $this->_firmware = $firmware;
+        return $this;
+    }
+
+    /**
      * @return SIP
      */
     public function getSIP()
     {
-        if(!$this->SIP) {
+        if (!$this->SIP) {
             $this->SIP = new SIP();
         }
 
@@ -93,7 +116,7 @@ class Config
      */
     public function getSystem()
     {
-        if(!$this->system) {
+        if (!$this->system) {
             $this->system = new System();
         }
 
@@ -115,7 +138,7 @@ class Config
      */
     public function getPhoneUI()
     {
-        if(!$this->phoneUI) {
+        if (!$this->phoneUI) {
             $this->phoneUI = new PhoneUI();
         }
 
@@ -137,7 +160,7 @@ class Config
      */
     public function getNetDir()
     {
-        if(!$this->netDir) {
+        if (!$this->netDir) {
             $this->netDir = new NetDir();
         }
         return $this->netDir;
@@ -166,7 +189,11 @@ class Config
         $output .= '<provisioning version="1.1" productID="' . $this->getProductID() . '">' . PHP_EOL;
 
         // @todo[feature]: add firmware definition (url)
-        $output .= '<firmware></firmware>' . PHP_EOL;
+        $output .= '<firmware>' . PHP_EOL;
+
+        $output .= '<file url="' . $this->_firmware . '"/>' . PHP_EOL;
+
+        $output .= '</firmware>' . PHP_EOL;
         $output .= '<nvm>' . PHP_EOL;
 
         $iterator = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->toArray()));
@@ -177,7 +204,7 @@ class Config
             }
 
             // convert booleans to 0 or 1
-            if(is_bool($leafValue)) {
+            if (is_bool($leafValue)) {
                 $leafValue = $leafValue ? '1' : '0';
             }
 
