@@ -188,7 +188,6 @@ class Config
         $output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
         $output .= '<provisioning version="1.1" productID="' . $this->getProductID() . '">' . PHP_EOL;
 
-        // @todo[feature]: add firmware definition (url)
         $output .= '<firmware>' . PHP_EOL;
 
         if($this->getFirmware()) {
