@@ -15,7 +15,7 @@ class Config
     private $_productID;
 
     /**
-     * @var string
+     * @var Firmware
      */
     private $_firmware;
 
@@ -72,7 +72,7 @@ class Config
     }
 
     /**
-     * @return string
+     * @return Firmware
      */
     public function getFirmware()
     {
@@ -80,10 +80,10 @@ class Config
     }
 
     /**
-     * @param string $firmware
+     * @param Firmware $firmware
      * @returns $this
      */
-    public function setFirmware($firmware)
+    public function setFirmware(Firmware $firmware)
     {
         $this->_firmware = $firmware;
         return $this;
@@ -191,11 +191,9 @@ class Config
         // @todo[feature]: add firmware definition (url)
         $output .= '<firmware>' . PHP_EOL;
 
-        if ($version = preg_match('/((\d+).(\d+).(\d))/', $this->getFirmware(), $matches)) {
-            $version = $matches[1];
+        if($this->getFirmware()) {
+            $output .= '<file version="' . $this->getFirmware()->getVersion() . '" url="' . $this->getFirmware()->getUrl() . '"/>' . PHP_EOL;
         }
-
-        $output .= '<file' . ($version ? ' version="' . $version . '"' : '') . ' url="' . $this->_firmware . '"/>' . PHP_EOL;
 
         $output .= '</firmware>' . PHP_EOL;
         $output .= '<nvm>' . PHP_EOL;
