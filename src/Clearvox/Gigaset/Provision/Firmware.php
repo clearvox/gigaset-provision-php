@@ -33,7 +33,7 @@ class Firmware {
         return $this->url;
     }
 
-    public function Firmware($version, $url)
+    public function __construct($version, $url)
     {
         $this->version = $version;
         $this->url = $url;
