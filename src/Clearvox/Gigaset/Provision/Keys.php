@@ -18,6 +18,16 @@ class Keys
     private $quickDialKeys;
 
     /**
+     * @param boolean $value
+     * @returns $this
+     */
+    public function setIcons($value)
+    {
+        $this->functionKeys['Icons'] = (bool)$value;
+        return $this;
+    }
+
+    /**
      * @return FunctionKey[]
      */
     public function getFunctionKeys()
