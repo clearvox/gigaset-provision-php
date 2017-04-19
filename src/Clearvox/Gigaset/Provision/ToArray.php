@@ -42,7 +42,11 @@ trait ToArray
                  * @var ToArray $v
                  */
                 foreach ($value as $i => $v) {
-                    $output[ucfirst($key)][$i] = $v->toArray();
+                    if(is_array($v)) {
+                        $output[ucfirst($key)][$i] = $v->toArray();
+                    } else {
+                        $output[ucfirst($key)][$i] = $v;
+                    }
                 }
                 continue;
             }
