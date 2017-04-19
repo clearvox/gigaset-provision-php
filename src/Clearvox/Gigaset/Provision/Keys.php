@@ -18,6 +18,11 @@ class Keys
     private $quickDialKeys;
 
     /**
+     * @var ProgrammableKeys
+     */
+    private $programmableKeys;
+
+    /**
      * @param boolean $value
      * @returns $this
      */
@@ -87,6 +92,28 @@ class Keys
         return $this;
     }
 
-    use ToArray;
+    /**
+     * @return ProgrammableKeys
+     */
+    public function getProgrammableKeys()
+    {
+        if(!$this->programmableKeys) {
+            $this->programmableKeys = new ProgrammableKeys();
+        }
 
+        return $this->programmableKeys;
+    }
+
+    /**
+     * @param ProgrammableKeys $programmableKeys
+     * @returns $this
+     */
+    public function setProgrammableKeys(ProgrammableKeys $programmableKeys)
+    {
+        $this->programmableKeys = $programmableKeys;
+        return $this;
+    }
+
+
+    use ToArray;
 }
