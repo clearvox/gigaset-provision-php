@@ -38,11 +38,10 @@ trait ToArray
 
             if (is_array($value)) {
                 /**
-                 * @var int $i
                  * @var ToArray $v
                  */
                 foreach ($value as $i => $v) {
-                    if(is_array($v)) {
+                    if(is_object($v) && method_exists($v, 'toArray')) {
                         $output[ucfirst($key)][$i] = $v->toArray();
                     } else {
                         $output[ucfirst($key)][$i] = $v;
