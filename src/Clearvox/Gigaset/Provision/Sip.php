@@ -18,6 +18,11 @@ class SIP
     private $defaultAccount;
 
     /**
+     * @var int
+     */
+    private $voiceQuality;
+
+    /**
      * @param Account $account
      * @return $this
      */
@@ -62,6 +67,24 @@ class SIP
     public function setDefaultAccount(Account $defaultAccount)
     {
         $this->defaultAccount = $defaultAccount;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVoiceQuality()
+    {
+        return $this->voiceQuality;
+    }
+
+    /**
+     * @param int $voiceQuality
+     * @returns $this
+     */
+    public function setVoiceQuality($voiceQuality)
+    {
+        $this->voiceQuality = $voiceQuality;
         return $this;
     }
 

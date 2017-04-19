@@ -18,6 +18,11 @@ class PhoneUI
     private $keys;
 
     /**
+     * @var Audio
+     */
+    private $audio;
+
+    /**
      * @return Settings
      */
     public function getSettings()
@@ -47,6 +52,7 @@ class PhoneUI
         if (!$this->keys) {
             $this->keys = new Keys();
         }
+
         return $this->keys;
     }
 
@@ -57,6 +63,28 @@ class PhoneUI
     public function setKeys($keys)
     {
         $this->keys = $keys;
+        return $this;
+    }
+
+    /**
+     * @return Audio
+     */
+    public function getAudio()
+    {
+        if(!$this->audio) {
+            $this->audio = new Audio();
+        }
+
+        return $this->audio;
+    }
+
+    /**
+     * @param Audio $audio
+     * @returns $this
+     */
+    public function setAudio($audio)
+    {
+        $this->audio = $audio;
         return $this;
     }
 

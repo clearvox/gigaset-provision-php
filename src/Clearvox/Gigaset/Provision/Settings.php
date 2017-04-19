@@ -43,6 +43,11 @@ class Settings
     private $screenSaverHTTPSource;
 
     /**
+     * @var int
+     */
+    private $volume;
+
+    /**
      * @return string
      */
     public function getLanguage()
@@ -169,6 +174,24 @@ class Settings
     public function setScreenSaverHTTPSource($screenSaverHTTPSource)
     {
         $this->screenSaverHTTPSource = $screenSaverHTTPSource;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVolume()
+    {
+        return $this->volume;
+    }
+
+    /**
+     * @param int $volume
+     * @returns $this
+     */
+    public function setVolume($volume)
+    {
+        $this->volume = $volume;
         return $this;
     }
 
