@@ -19,16 +19,6 @@ trait ToArray
                 continue;
             }
 
-            $boolGet = 'is' . ucfirst($key);
-            if (method_exists($this, $boolGet)) {
-                $value = $this->$boolGet() ? '1' : '0';
-            }
-
-            $getter = 'get' . ucfirst($key);
-            if (method_exists($this, $getter)) {
-                $value = $this->$getter();
-            }
-
             if (is_object($value)) {
                 if (method_exists($value, 'toArray')) {
                     $output[ucfirst($key)] = $value->toArray();
@@ -47,7 +37,17 @@ trait ToArray
                 continue;
             }
 
-            if ($value || $value === 0 || $value === '0') {
+            $boolGet = 'is' . ucfirst($key);
+            if (method_exists($this, $boolGet)) {
+                $value = $this->$boolGet() ? '1' : '0';
+            }
+
+            $getter = 'get' . ucfirst($key);
+            if (method_exists($this, $getter)) {
+                $value = $this->$getter();
+            }
+
+            if ($value !== null && $value !== "") {
                 $output[ucfirst($key)] = $value;
             }
         }
