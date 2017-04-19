@@ -23,6 +23,11 @@ class PhoneUI
     private $audio;
 
     /**
+     * @var Provisioning
+     */
+    private $provisioning;
+
+    /**
      * @return Settings
      */
     public function getSettings()
@@ -87,6 +92,29 @@ class PhoneUI
         $this->audio = $audio;
         return $this;
     }
+
+    /**
+     * @return Provisioning
+     */
+    public function getProvisioning()
+    {
+        if(!$this->provisioning) {
+            $this->provisioning = new Provisioning();
+        }
+
+        return $this->provisioning;
+    }
+
+    /**
+     * @param Provisioning $provisioning
+     * @returns $this
+     */
+    public function setProvisioning($provisioning)
+    {
+        $this->provisioning = $provisioning;
+        return $this;
+    }
+
 
     use ToArray;
 
