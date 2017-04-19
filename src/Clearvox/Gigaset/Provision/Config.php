@@ -44,6 +44,11 @@ class Config
     private $netDir;
 
     /**
+     * @var WebUI
+     */
+    private $webUI;
+
+    /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
@@ -176,6 +181,29 @@ class Config
         return $this;
     }
 
+    /**
+     * @return WebUI
+     */
+    public function getWebUI()
+    {
+        if (!$this->webUI) {
+            $this->webUI = new WebUI();
+        }
+
+        return $this->webUI;
+    }
+
+    /**
+     * @param WebUI $webUI
+     * @returns $this
+     */
+    public function setWebUI($webUI)
+    {
+        $this->webUI = $webUI;
+        return $this;
+    }
+
+
     use ToArray;
 
     /**
@@ -190,7 +218,7 @@ class Config
 
         $output .= '<firmware>' . PHP_EOL;
 
-        if($this->getFirmware()) {
+        if ($this->getFirmware()) {
             $output .= '<file version="' . $this->getFirmware()->getVersion() . '" url="' . $this->getFirmware()->getUrl() . '"/>' . PHP_EOL;
         }
 
