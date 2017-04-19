@@ -19,7 +19,12 @@ trait ToArray
                 continue;
             }
 
-            $getter = "get" . ucfirst($key);
+            $boolGet = 'is' . ucfirst($key);
+            if (method_exists($this, $boolGet)) {
+                $value = $this->$boolGet() ? '1' : '0';
+            }
+
+            $getter = 'get' . ucfirst($key);
             if (method_exists($this, $getter)) {
                 $value = $this->$getter();
             }
@@ -42,7 +47,7 @@ trait ToArray
                 continue;
             }
 
-            if ($value || $value === 0) {
+            if ($value || $value === 0 || $value === '0') {
                 $output[ucfirst($key)] = $value;
             }
         }
