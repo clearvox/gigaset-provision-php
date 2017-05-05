@@ -316,10 +316,12 @@ class Account
 
     /**
      * @param int $DTMFTransmission
+     * @returns $this
      */
     public function setDTMFTransmission($DTMFTransmission)
     {
         $this->DTMFTransmission = $DTMFTransmission;
+        return $this;
     }
 
     /**
