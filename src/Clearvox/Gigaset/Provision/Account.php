@@ -307,21 +307,19 @@ class Account
     }
 
     /**
-     * @return boolean
+     * @return int
      */
-    public function isDTMFTransmission()
+    public function getDTMFTransmission()
     {
         return $this->DTMFTransmission;
     }
 
     /**
-     * @param boolean $DTMFTransmission
-     * @returns $this
+     * @param int $DTMFTransmission
      */
     public function setDTMFTransmission($DTMFTransmission)
     {
         $this->DTMFTransmission = $DTMFTransmission;
-        return $this;
     }
 
     /**
