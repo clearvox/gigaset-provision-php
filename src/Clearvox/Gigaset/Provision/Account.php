@@ -68,9 +68,9 @@ class Account
     private $CLIPSource = 2;
 
     /**
-     * @var bool
+     * @var int
      */
-    private $DTMFTransmission = false;
+    private $DTMFTransmission = 4;
 
     /**
      * @var Voicemail
