@@ -49,6 +49,11 @@ class Config
     private $webUI;
 
     /**
+     * @var Telephony
+     */
+    private $telephony;
+
+    /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
@@ -203,6 +208,24 @@ class Config
         return $this;
     }
 
+    /**
+     * @return Telephony
+     */
+    public function getTelephony()
+    {
+        if (!$this->telephony) {
+            $this->telephony = new Telephony();
+        }
+        return $this->telephony;
+    }
+
+    /**
+     * @param Telephony $telephony
+     */
+    public function setTelephony($telephony)
+    {
+        $this->telephony = $telephony;
+    }
 
     use ToArray;
 
