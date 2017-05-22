@@ -220,11 +220,13 @@ class Config
     }
 
     /**
-     * @param Telephony $telephony
+     * @param $telephony
+     * @return $this
      */
     public function setTelephony($telephony)
     {
         $this->telephony = $telephony;
+        return $this;
     }
 
     use ToArray;
