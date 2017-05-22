@@ -173,6 +173,7 @@ class Config
         if (!$this->netDir) {
             $this->netDir = new NetDir();
         }
+
         return $this->netDir;
     }
 
@@ -216,6 +217,7 @@ class Config
         if (!$this->telephony) {
             $this->telephony = new Telephony();
         }
+
         return $this->telephony;
     }
 
