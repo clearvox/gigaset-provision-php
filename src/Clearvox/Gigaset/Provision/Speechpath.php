@@ -20,7 +20,7 @@ class Speechpath
     /**
      * @var int
      */
-    private $outCallsViaFunctionKeys;
+    private $outCallsViaFunctionKey;
 
     /**
      * @return int
@@ -61,17 +61,19 @@ class Speechpath
     /**
      * @return int
      */
-    public function getOutCallsViaFunctionKeys()
+    public function getOutCallsViaFunctionKey()
     {
-        return $this->outCallsViaFunctionKeys;
+        return $this->outCallsViaFunctionKey;
     }
 
     /**
-     * @param int $outCallsViaFunctionKeys
+     * @param int $outCallsViaFunctionKey
+     * @return $this
      */
-    public function setOutCallsViaFunctionKeys($outCallsViaFunctionKeys)
+    public function setOutCallsViaFunctionKey($outCallsViaFunctionKey)
     {
-        $this->outCallsViaFunctionKeys = $outCallsViaFunctionKeys;
+        $this->outCallsViaFunctionKey = $outCallsViaFunctionKey;
+        return $this;
     }
 
     use ToArray;
