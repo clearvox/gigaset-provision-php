@@ -53,6 +53,9 @@ class Config
      */
     private $telephony;
 
+    /**
+     * @var FirmwareManagement
+     */
     private $firmwareManagement;
 
     /**
