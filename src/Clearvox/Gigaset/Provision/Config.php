@@ -53,6 +53,8 @@ class Config
      */
     private $telephony;
 
+    private $firmwareManagement;
+
     /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
@@ -73,11 +75,13 @@ class Config
 
     /**
      * @param string $_productID
+     *
      * @returns $this
      */
     public function setProductID($_productID)
     {
         $this->_productID = $_productID;
+
         return $this;
     }
 
@@ -91,11 +95,37 @@ class Config
 
     /**
      * @param Firmware $firmware
+     *
      * @returns $this
      */
     public function setFirmware(Firmware $firmware)
     {
         $this->_firmware = $firmware;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirmwareManagement()
+    {
+        if (!$this->firmwareManagement) {
+            $this->firmwareManagement = new FirmwareManagement();
+        }
+
+        return $this->firmwareManagement;
+    }
+
+    /**
+     * @param mixed $firmwareManagement
+     *
+     * @return $this
+     */
+    public function setFirmwareManagement($firmwareManagement)
+    {
+        $this->firmwareManagement = $firmwareManagement;
+
         return $this;
     }
 
@@ -113,11 +143,13 @@ class Config
 
     /**
      * @param SIP $SIP
+     *
      * @returns $this
      */
     public function setSIP(SIP $SIP)
     {
         $this->SIP = $SIP;
+
         return $this;
     }
 
@@ -135,11 +167,13 @@ class Config
 
     /**
      * @param System $system
+     *
      * @returns $this
      */
     public function setSystem($system)
     {
         $this->system = $system;
+
         return $this;
     }
 
@@ -157,11 +191,13 @@ class Config
 
     /**
      * @param PhoneUI $phoneUI
+     *
      * @returns $this
      */
     public function setPhoneUI($phoneUI)
     {
         $this->phoneUI = $phoneUI;
+
         return $this;
     }
 
@@ -179,11 +215,13 @@ class Config
 
     /**
      * @param NetDir $netDir
+     *
      * @returns $this
      */
     public function setNetDir($netDir)
     {
         $this->netDir = $netDir;
+
         return $this;
     }
 
@@ -201,11 +239,13 @@ class Config
 
     /**
      * @param WebUI $webUI
+     *
      * @returns $this
      */
     public function setWebUI($webUI)
     {
         $this->webUI = $webUI;
+
         return $this;
     }
 
@@ -223,11 +263,13 @@ class Config
 
     /**
      * @param $telephony
+     *
      * @return $this
      */
     public function setTelephony($telephony)
     {
         $this->telephony = $telephony;
+
         return $this;
     }
 
