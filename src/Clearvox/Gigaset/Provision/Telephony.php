@@ -13,6 +13,11 @@ class Telephony {
     private $speechpath;
 
     /**
+     * @var string
+     */
+    private $toneScheme;
+
+    /**
      * @return Speechpath
      */
     public function getSpeechpath()
@@ -30,6 +35,26 @@ class Telephony {
     public function setSpeechpath($speechpath)
     {
         $this->speechpath = $speechpath;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getToneScheme()
+    {
+        return $this->toneScheme;
+    }
+
+    /**
+     * @param string $toneScheme
+     *
+     * @return $this
+     */
+    public function setToneScheme($toneScheme)
+    {
+        $this->toneScheme = $toneScheme;
+
         return $this;
     }
 
