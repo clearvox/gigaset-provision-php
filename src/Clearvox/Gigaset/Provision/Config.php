@@ -56,7 +56,7 @@ class Config
     /**
      * @var FirmwareManagement
      */
-    private $firmwareManagement;
+    private $firmwareManagment;
 
     /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
@@ -111,23 +111,23 @@ class Config
     /**
      * @return mixed
      */
-    public function getFirmwareManagement()
+    public function getFirmwareManagment()
     {
-        if (!$this->firmwareManagement) {
-            $this->firmwareManagement = new FirmwareManagement();
+        if (!$this->firmwareManagment) {
+            $this->firmwareManagment = new FirmwareManagement();
         }
 
-        return $this->firmwareManagement;
+        return $this->firmwareManagment;
     }
 
     /**
-     * @param mixed $firmwareManagement
+     * @param mixed $firmwareManagment
      *
      * @return $this
      */
-    public function setFirmwareManagement($firmwareManagement)
+    public function setFirmwareManagment($firmwareManagment)
     {
-        $this->firmwareManagement = $firmwareManagement;
+        $this->firmwareManagment = $firmwareManagment;
 
         return $this;
     }
