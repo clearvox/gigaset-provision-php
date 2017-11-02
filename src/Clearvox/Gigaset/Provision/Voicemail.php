@@ -15,7 +15,7 @@ class Voicemail
     /**
      * @var string
      */
-    private $mailBox = '';
+    private $mailbox = '';
 
     /**
      * @return boolean
@@ -40,16 +40,16 @@ class Voicemail
      */
     public function getMailBox()
     {
-        return $this->mailBox;
+        return $this->mailbox;
     }
 
     /**
-     * @param string $mailBox
+     * @param string $mailbox
      * @returns $this
      */
-    public function setMailBox($mailBox)
+    public function setMailBox($mailbox)
     {
-        $this->mailBox = $mailBox;
+        $this->mailbox = $mailbox;
         return $this;
     }
 
