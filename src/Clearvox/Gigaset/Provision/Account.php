@@ -364,6 +364,14 @@ class Account
         return $this;
     }
 
+    /**
+     * @param Ringtone $ringtone
+     */
+    public function setRingtone(Ringtone $ringtone)
+    {
+        $this->ringtone = $ringtone;
+    }
+
     use ToArray;
 
 }
