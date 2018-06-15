@@ -50,7 +50,7 @@ trait ToArray
                 continue;
             }
 
-            if (($value || $value === 0) && $value !== "") {
+            if (($value || $value === 0 || $value === '')) {
                 $output[ucfirst($key)] = $value;
             }
         }
