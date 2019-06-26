@@ -59,10 +59,6 @@ class Config
     private $firmwareManagment;
 
     /**
-     * @var Security
-     */
-
-    /**
      * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
