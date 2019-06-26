@@ -2,10 +2,10 @@
 namespace Clearvox\Gigaset\Provision;
 
 /**
- * Gigaset Maxwell 3 / Basic UnifiedPhoneConfiguration Config Builder
+ * Gigaset Maxwell 3 / Basic Provision Config Builder
  *
  * Class Config
- * @package Clearvox\Gigaset\UnifiedPhoneConfiguration
+ * @package Clearvox\Gigaset\Provision
  */
 class Config
 {
@@ -63,7 +63,7 @@ class Config
      */
 
     /**
-     * Gigaset Maxwell 3 / Basic UnifiedPhoneConfiguration Config constructor.
+     * Gigaset Maxwell 3 / Basic Provision Config constructor.
      *
      * @param $productID
      */

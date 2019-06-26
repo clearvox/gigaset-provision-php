@@ -3,7 +3,7 @@ namespace Clearvox\Gigaset\Provision;
 
 /**
  * Class System
- * @package Clearvox\Gigaset\UnifiedPhoneConfiguration
+ * @package Clearvox\Gigaset\Provision
  */
 class System
 {
