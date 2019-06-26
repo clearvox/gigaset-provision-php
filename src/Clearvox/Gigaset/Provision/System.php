@@ -3,7 +3,7 @@ namespace Clearvox\Gigaset\Provision;
 
 /**
  * Class System
- * @package Clearvox\Gigaset\Provision
+ * @package Clearvox\Gigaset\UnifiedPhoneConfiguration
  */
 class System
 {
@@ -16,6 +16,11 @@ class System
      * @var Provision
      */
     private $provision;
+
+    /**
+     * @var Security
+     */
+    private $security;
 
     /**
      * @return DateAndTime
@@ -58,6 +63,29 @@ class System
     public function setProvision(Provision $provision)
     {
         $this->provision = $provision;
+        return $this;
+    }
+
+
+    /**
+     * @return Security
+     */
+    public function getSecurity()
+    {
+        if(!$this->security) {
+            $this->security = new Security();
+        }
+
+        return $this->security;
+    }
+
+    /**
+     * @param Security $security
+     * @returns $this
+     */
+    public function setSecurity(Security $security)
+    {
+        $this->security = $security;
         return $this;
     }
 

@@ -2,10 +2,10 @@
 namespace Clearvox\Gigaset\Provision;
 
 /**
- * Gigaset Maxwell 3 / Basic Provision Config Builder
+ * Gigaset Maxwell 3 / Basic UnifiedPhoneConfiguration Config Builder
  *
  * Class Config
- * @package Clearvox\Gigaset\Provision
+ * @package Clearvox\Gigaset\UnifiedPhoneConfiguration
  */
 class Config
 {
@@ -63,7 +63,7 @@ class Config
      */
 
     /**
-     * Gigaset Maxwell 3 / Basic Provision Config constructor.
+     * Gigaset Maxwell 3 / Basic UnifiedPhoneConfiguration Config constructor.
      *
      * @param $productID
      */
@@ -132,30 +132,6 @@ class Config
     public function setFirmwareManagment($firmwareManagment)
     {
         $this->firmwareManagment = $firmwareManagment;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSecurity()
-    {
-        if (!$this->security) {
-            $this->security = new Security();
-        }
-
-        return $this->security;
-    }
-
-    /**
-     * @param mixed $security
-     *
-     * @return $this
-     */
-    public function setSecurity($security)
-    {
-        $this->security = $security;
 
         return $this;
     }
