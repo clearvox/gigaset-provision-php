@@ -18,6 +18,11 @@ class System
     private $provision;
 
     /**
+     * @var Security
+     */
+    private $security;
+
+    /**
      * @return DateAndTime
      */
     public function getDateAndTime()
@@ -58,6 +63,29 @@ class System
     public function setProvision(Provision $provision)
     {
         $this->provision = $provision;
+        return $this;
+    }
+
+
+    /**
+     * @return Security
+     */
+    public function getSecurity()
+    {
+        if(!$this->security) {
+            $this->security = new Security();
+        }
+
+        return $this->security;
+    }
+
+    /**
+     * @param Security $security
+     * @returns $this
+     */
+    public function setSecurity(Security $security)
+    {
+        $this->security = $security;
         return $this;
     }
 
