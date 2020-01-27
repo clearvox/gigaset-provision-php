@@ -63,6 +63,11 @@ class Account
     private $registrationServer = null;
 
     /**
+     * @var OutboundProxy
+     */
+    private $outboundProxy = null;
+
+    /**
      * @var int
      */
     private $CLIPSource = 2;
@@ -285,6 +290,28 @@ class Account
     public function setRegistrationServer(Server $registrationServer)
     {
         $this->registrationServer = $registrationServer;
+        return $this;
+    }
+
+    /**
+     * @return Server
+     */
+    public function getOutboundProxy()
+    {
+        if(!$this->outboundProxy) {
+            $this->outboundProxy = new OutboundProxy();
+        }
+
+        return $this->outboundProxy;
+    }
+
+    /**
+     * @param Server $outboundProxy
+     * @returns $this
+     */
+    public function setOutboundProxy(OutboundProxy $outboundProxy)
+    {
+        $this->outboundProxy = $outboundProxy;
         return $this;
     }
 
