@@ -68,6 +68,13 @@ class OutboundProxy
         return $this;
     }
 
+    /**
+     * @returns int
+     */
+    public function getMode()
+    {
+        return $this->mode;
+    }
 
 
     use ToArray;
