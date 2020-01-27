@@ -294,7 +294,7 @@ class Account
     }
 
     /**
-     * @return Server
+     * @return OutboundProxy
      */
     public function getOutboundProxy()
     {
@@ -306,7 +306,7 @@ class Account
     }
 
     /**
-     * @param Server $outboundProxy
+     * @param OutboundProxy $outboundProxy
      * @returns $this
      */
     public function setOutboundProxy(OutboundProxy $outboundProxy)
