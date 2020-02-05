@@ -43,6 +43,11 @@ class Settings
     private $screenSaverHTTPSource;
 
     /**
+     * @var string
+     */
+    private $selectedWallpapers;
+
+    /**
      * @var int
      */
     private $volume;
@@ -175,6 +180,23 @@ class Settings
     {
         $this->screenSaverHTTPSource = $screenSaverHTTPSource;
         return $this;
+    }
+
+    /**
+     * @param $selectedWallpapers
+     *
+     * @return $this
+     */
+    public function setSelectedWallpapers($selectedWallpapers)
+    {
+        $this->selectedWallpapers = $selectedWallpapers;
+
+        return $this;
+    }
+
+    public function getSelectedWallpapers()
+    {
+        return $this->selectedWallpapers;
     }
 
     /**

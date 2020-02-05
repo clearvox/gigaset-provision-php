@@ -20,6 +20,11 @@ class Config
     private $_firmware;
 
     /**
+     * @var string
+     */
+    private $_downloadWallpaper;
+
+    /**
      * Basic sip configuration
      *
      * @var SIP
@@ -106,6 +111,26 @@ class Config
         $this->_firmware = $firmware;
 
         return $this;
+    }
+
+    /**
+     * @param $downloadWallpaper
+     *
+     * @return $this
+     */
+    public function setDownloadWallpaper($downloadWallpaper)
+    {
+        $this->_downloadWallpaper = $downloadWallpaper;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDownloadWallpaper()
+    {
+        return $this->_downloadWallpaper;
     }
 
     /**
@@ -295,6 +320,13 @@ class Config
         }
 
         $output .= '</firmware>' . PHP_EOL;
+
+        if ($this->getDownloadWallpaper()) {
+            $output .= '<custom>' . PHP_EOL;
+            $output .= '<step type="DownloadWallpaper" url="' . $this->getDownloadWallpaper() . '"/>' . PHP_EOL;
+            $output .= '</custom>' . PHP_EOL;
+        }
+
         $output .= '<nvm>' . PHP_EOL;
 
         $iterator = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->toArray()));
