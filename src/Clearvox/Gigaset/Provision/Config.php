@@ -9,6 +9,8 @@ namespace Clearvox\Gigaset\Provision;
  */
 class Config
 {
+    use XMLHelper;
+
     /**
      * @var string
      */
@@ -311,19 +313,19 @@ class Config
     public function toXML()
     {
         $output = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
-        $output .= '<provisioning version="1.1" productID="' . $this->getProductID() . '">' . PHP_EOL;
+        $output .= '<provisioning version="1.1" productID="' . xml_escape($this->getProductID()) . '">' . PHP_EOL;
 
         $output .= '<firmware>' . PHP_EOL;
 
         if ($this->getFirmware()) {
-            $output .= '<file version="' . $this->getFirmware()->getVersion() . '" url="' . $this->getFirmware()->getUrl() . '"/>' . PHP_EOL;
+            $output .= '<file version="' . xml_escape($this->getFirmware()->getVersion()) . '" url="' . xml_escape($this->getFirmware()->getUrl()) . '"/>' . PHP_EOL;
         }
 
         $output .= '</firmware>' . PHP_EOL;
 
         if ($this->getDownloadWallpaper()) {
             $output .= '<custom>' . PHP_EOL;
-            $output .= '<step type="DownloadWallpaper" url="' . $this->getDownloadWallpaper() . '"/>' . PHP_EOL;
+            $output .= '<step type="DownloadWallpaper" url="' . xml_escape($this->getDownloadWallpaper()) . '"/>' . PHP_EOL;
             $output .= '</custom>' . PHP_EOL;
         }
 
@@ -341,7 +343,7 @@ class Config
                 $leafValue = $leafValue ? '1' : '0';
             }
 
-            $output .= '<param name="' . join('.', $keys) . '" value="' . $leafValue . '" />' . PHP_EOL;
+            $output .= '<param name="' . xml_escape(join('.', $keys)) . '" value="' . xml_escape($leafValue) . '" />' . PHP_EOL;
         }
         $output .= '</nvm>' . PHP_EOL;
 
