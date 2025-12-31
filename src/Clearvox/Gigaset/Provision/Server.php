@@ -65,8 +65,7 @@ class Server
 
     /**
      * @param int $refreshTimer
-     *
-     * @return Server
+     * @returns $this
      */
     public function setRefreshTimer($refreshTimer)
     {
@@ -92,7 +91,7 @@ class Server
 
     /**
      * @param int $refreshTimerFailed
-     * @return Server
+     * @returns $this
      */
     public function setRefreshTimerFailed($refreshTimerFailed)
     {
