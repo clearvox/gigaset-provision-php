@@ -402,6 +402,14 @@ class Account
     }
 
     /**
+     * @return Ringtone|null
+     */
+    public function getRingtone()
+    {
+        return $this->ringtone;
+    }
+
+    /**
      * @param Ringtone $ringtone
      * @return $this
      */
