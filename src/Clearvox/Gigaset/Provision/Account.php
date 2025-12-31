@@ -88,6 +88,16 @@ class Account
     private $countMissedAcceptedCalls = false;
 
     /**
+     * @var Ringtone|null
+     */
+    private $ringtone = null;
+
+    /**
+     * @var array
+     */
+    private $audioCodecs = [];
+
+    /**
      * @return string
      */
     public function getAccountName()
@@ -393,12 +403,32 @@ class Account
 
     /**
      * @param Ringtone $ringtone
+     * @return $this
      */
     public function setRingtone(Ringtone $ringtone)
     {
         $this->ringtone = $ringtone;
+        return $this;
+    }
+
+    /**
+     * Add an Audio Codec to the list.
+     * * @param string $codec The codec name (e.g., 'G.722', 'PCMA', 'OPUS')
+     * @return $this
+     */
+    public function addCodec($codec)
+    {
+        $this->audioCodecs[] = $codec;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAudioCodecs()
+    {
+        return $this->audioCodecs;
     }
 
     use ToArray;
-
 }
