@@ -421,7 +421,7 @@ class Account
 
     /**
      * Add an Audio Codec to the list.
-     * * @param string $codec The codec name (e.g., 'G.722', 'PCMA', 'OPUS')
+     * @param string $codec The codec name (e.g., 'G.722', 'PCMA', 'OPUS')
      * @return $this
      */
     public function addCodec($codec)
