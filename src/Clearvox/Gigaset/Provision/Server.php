@@ -18,6 +18,16 @@ class Server
     private $port;
 
     /**
+     * @var int
+     */
+    private $refreshTimer;
+
+    /**
+     * @var int
+     */
+    private $refreshTimerFailed;
+
+    /**
      * @return string
      */
     public function getAddress()
@@ -53,6 +63,41 @@ class Server
         return $this;
     }
 
-    use ToArray;
+    /**
+     * @param int $refreshTimer
+     * @returns $this
+     */
+    public function setRefreshTimer($refreshTimer)
+    {
+        $this->refreshTimer = $refreshTimer;
+        return $this;
+    }
 
+    /**
+     * @return int
+     */
+    public function getRefreshTimer()
+    {
+        return $this->refreshTimer;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRefreshTimerFailed()
+    {
+        return $this->refreshTimerFailed;
+    }
+
+    /**
+     * @param int $refreshTimerFailed
+     * @returns $this
+     */
+    public function setRefreshTimerFailed($refreshTimerFailed)
+    {
+        $this->refreshTimerFailed = $refreshTimerFailed;
+        return $this;
+    }
+
+    use ToArray;
 }
